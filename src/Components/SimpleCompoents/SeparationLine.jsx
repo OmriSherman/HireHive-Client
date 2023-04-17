@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function SeparationLine(props) {
-    const {width, height, color, marginTop, marginBottom, position, direction, directionNum} = props;
+    const {width, height, color, marginTop, marginBottom, position, direction, directionNum, margin} = props;
 
     const myStyle = {
         width: width,
@@ -9,6 +9,7 @@ export default function SeparationLine(props) {
         marginTop: marginTop,
         marginBottom: marginBottom,
         position: position,
+        margin: margin,
         [direction]: directionNum
     };
 

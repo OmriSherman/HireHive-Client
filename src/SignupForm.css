@@ -15,3 +15,36 @@
 .form-header {
     text-align: center;
 }
+
+.form-buttons {
+    position: absolute;
+    right: 20px;
+    margin: 30px;
+}
+
+.step1-icons {
+    padding: 0 10 0 10;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.step1-icons > div {
+    flex: 0.5;
+    font-weight: 550;
+    color: rgb(36, 36, 36);
+}
+
+.step1-icons > *:first-child {
+    cursor: pointer;
+    flex: 1;
+  }
+  
+  .step1-icons > *:last-child {
+    cursor: pointer;
+    flex: 1;
+  }
+.step1-icons > div {
+    flex: 1;
+}
