@@ -1,0 +1,64 @@
+
+
+.page {
+    padding-top: 10%;
+
+}
+
+.segment {
+    background-color: rgba(255, 255, 255, 0.438);
+    border: 1px solid rgb(170, 170, 170);
+    border-radius: 10px;
+    max-width: 100%;
+    min-width: 400px;
+    margin: 0 30% 0 30%;
+    padding: 30px 20px 30px 20px;
+
+}
+.header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.image {
+    height: 250px;
+    width: 250px;
+    border-radius: 200px;
+    border: 2px solid white;
+}
+
+.name {
+    font-weight: 500;
+    font-size: 26px;
+}
+
+.contact-info {
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+
+}
+.about-area {
+    margin-top: 10px;
+    width: 400px;
+    height: 150px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.about-candidate {
+    padding: 5px;
+}
+
+.arrow-div::before {
+    content: "<-";
+    margin-right: 5px;
+  }

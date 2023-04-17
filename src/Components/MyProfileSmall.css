@@ -1,0 +1,64 @@
+body {
+    position: relative;
+}
+
+.my-profile-class {
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 100%;
+    border-radius: 20px;
+    border: 1px solid rgba(100, 96, 96, 0.5)
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+    gap: 8px;
+    width: 100%;
+}
+
+.profile-pic {
+    align-self: center;
+    height: 90px;
+    width: 90px;
+    border-radius: 40px;
+}
+
+.profile-name {
+font-size: 20px;
+font-weight: 500;
+color: rgb(105, 104, 104);
+}
+
+.profile-work {
+
+} 
+
+.my-profile-line {
+    position: 0;
+    width: 100%;
+    margin-block: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.my-profile-actions {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+}
+
+.action-option {
+    cursor: pointer;
+    padding-left: 10px;
+    padding-block: 2px;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(101, 101, 101);
+    width: auto;
+}
+
+.action-option:hover {
+    background-color: rgb(208, 206, 206);
+}

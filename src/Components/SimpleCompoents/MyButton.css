@@ -1,0 +1,12 @@
+.myButton {
+    border: 1px solid #084298;
+    border-radius: 6px !important;
+    color: #0b387b;
+    font-weight: 700;
+    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+
+.myButton:hover {
+    background-color: #0b387b;
+    color: white;
+}

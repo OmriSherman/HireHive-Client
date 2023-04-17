@@ -1,0 +1,161 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --primary-light-hsl: 200, 100%, 91%;
+  --primary-hsl: 200, 100%, 50%;
+  --primary-dark-hsl: 200, 100%, 6%;
+  --success-hsl: 100, 60%, 50%;
+  --error-hsl: 0, 60%, 50%;
+}
+
+body {
+  margin: 0;
+}
+
+.bg {
+  background-image: url('./photos/login-bg.jpeg');
+}
+.full-screen-container {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  --color: hsl(var(--primary-dark-hsl), .7);
+  background-color: var(--color);
+  box-shadow: 0 0 15px 0 var(--color);
+  padding: 40px 30px;
+  width: 70%;
+  max-width: 600px;
+  height: 350px;
+  border-radius: 15px;
+}
+
+.login-title {
+  margin: 0;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+input {
+  width: 273px;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+}
+
+.input-group label {
+  color: white;
+  font-weight: lighter;
+}
+
+.input-group input {
+  font-size: 1.25rem;
+  padding: .5em;
+  background-color: white;
+  border: none;
+  outline: none;
+  color: rgb(128, 128, 128);
+  padding-left: 20px;
+  font-weight: lighter;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    align-self: center;
+  }
+
+input:focus {
+    border: none;
+    outline: none;
+}
+
+input::-webkit-input-placeholder {
+    color: white;
+  }
+
+.input-group.success input {
+  box-shadow: 0 0 0 1px hsl(var(--success-hsl));
+}
+
+.input-group.error input {
+  box-shadow: 0 0 0 1px hsl(var(--error-hsl));
+}
+
+.input-group input:focus {
+  box-shadow: 0 0 0 1px hsl(var(--primary-hsl));
+}
+
+.input-group .msg {
+  display: none;
+  font-size: .75rem;
+}
+
+.input-group.success .msg,
+.input-group.error .msg {
+  display: block;
+}
+
+.input-group.error .msg {
+  color: hsl(var(--error-hsl));
+}
+
+.input-group.success .msg {
+  color: hsl(var(--success-hsl));
+}
+
+.login-button {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  color: white;
+  background-color: hsl(var(--primary-hsl), .25);
+  border: 1px solid hsl(var(--primary-hsl));
+  outline: none;
+  cursor: pointer;
+    align-self: center;
+    width:323px;
+}
+
+.login-button:hover,
+.login-button:focus {
+  background-color: hsl(var(--primary-hsl), .4);
+}
+
+.icon {
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    border: "none";
+    padding: 10px 10px;
+}
+
+.sign-up {
+  position: relative;
+  left: 461px;
+  top: 30px;
+  font-weight: 600;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}

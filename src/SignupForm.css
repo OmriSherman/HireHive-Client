@@ -1,0 +1,17 @@
+.form-div {
+    width: 700px;
+    height: 400px;
+    position: fixed;
+    padding: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(239, 239, 239);
+    border: 1px solid black;
+    border-radius: 5px;
+    z-index: 9999;
+}
+
+.form-header {
+    text-align: center;
+}

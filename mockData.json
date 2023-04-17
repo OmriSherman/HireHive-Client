@@ -1,0 +1,48 @@
+[
+    {
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "location": "New York",
+      "age": 32,
+      "photo": "https://picsum.photos/200/100",
+      "about": "best boi in NYC lesgo" 
+
+    },
+    {
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "email": "jane.doe@example.com",
+      "location": "Los Angeles",
+      "age": 28,
+      "photo": "https://picsum.photos/200/200",
+      "about": "hola chico que pasito"
+    },
+    {
+      "first_name": "Bob",
+      "last_name": "Smith",
+      "email": "bob.smith@example.com",
+      "location": "London",
+      "age": 25,
+      "photo": "https://picsum.photos/200/300",
+      "about": "Bob but not the builder"
+    },
+    {
+      "first_name": "Sharlinge",
+      "last_name": "Adelson",
+      "email": "sharlin.de.cringe@example.com",
+      "location": "Avoda",
+      "age": 29,
+      "photo": "/src/icons/sharlinge.jpeg",
+      "about": "I like when my dog licks his ass and then licks my mouth :P"
+    },
+    {
+      "first_name": "Michael",
+      "last_name": "Brown",
+      "email": "michael.brown@example.com",
+      "location": "Berlin",
+      "age": 33,
+      "photo": "https://picsum.photos/200/300",
+      "about": "Hire me or I go shaboomboom"
+    }
+  ]

@@ -1,0 +1,41 @@
+.filter-main {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 0 5px 10px;
+    border-radius: 15px;
+    border: 1px solid gray;
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.filter-title {
+width: 100px;
+font-size: 18px;
+font-weight: 450;
+}
+
+.filter-container:first-child {
+    width: 100px;
+}
+
+input {
+    width: 60px;
+}
+
+.age-filter-container {
+    display: flex;
+    gap: 10px;
+}
+
+.sex-filter-container {
+    display: flex;
+    gap: 10px;
+}
+
+.location-filter-container {
+    display: flex;
+    gap: 10px;
+}
