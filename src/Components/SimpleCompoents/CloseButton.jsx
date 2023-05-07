@@ -4,11 +4,12 @@ import '../../icons/close.png';
 export default function CloseButton({onClick}) {
     const closeButtonStyle = {
         position: 'absolute',
-        top: '10px',
-        right: '10px',
+        top: '280px',
+        right: '495px',
         cursor: 'pointer',
         backgroundColor: 'transparent',
-        border: 'none'
+        border: 'none',
+        zIndex: '101'
       };
     
     
