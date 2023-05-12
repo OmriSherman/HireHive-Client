@@ -32,12 +32,12 @@ export default function MultistepForm(props) {
              </div>)
         case 2:
           return (<div>
-            <Step2 prevStep={prevStep} nextStep={nextStep} />;
+            <Step2 prevStep={prevStep} nextStep={nextStep} setData={handleDataChange} type={data.type} />;
             <CloseButton onClick={handleClose}/>
             </div>)
         case 3:
           return (<div>
-            <Step3 prevStep={prevStep} nextStep={nextStep} />;
+            <Step3 prevStep={prevStep} nextStep={nextStep} setData={handleDataChange} type={data.type}/>;
             <CloseButton onClick={handleClose}/>
             </div>)
         case 4:
