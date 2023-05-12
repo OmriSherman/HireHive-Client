@@ -4,6 +4,8 @@ import { Step1, Step2, Step3, Finish } from '../SignupForm';
 
 export default function MultistepForm(props) {
     const [step,setStep] = useState(1);
+    const [data, setData] = useState({});
+    
 
     const nextStep = () => {
         setStep(step + 1);
@@ -17,20 +19,25 @@ export default function MultistepForm(props) {
       props.close();
     }
     
+    const handleDataChange = (stepData) => {
+      console.log(stepData);
+      setData({ ...data, ...stepData });
+    };
+
       switch (step) {
         case 1:
           return (<div>
-             <Step1 nextStep={nextStep} />;
+             <Step1 nextStep={nextStep} setData={handleDataChange}  />;
              <CloseButton onClick={handleClose}/>
              </div>)
         case 2:
           return (<div>
-            <Step2 prevStep={prevStep} nextStep={nextStep} />;
+            <Step2 prevStep={prevStep} nextStep={nextStep} setData={handleDataChange} type={data.type} />;
             <CloseButton onClick={handleClose}/>
             </div>)
         case 3:
           return (<div>
-            <Step3 prevStep={prevStep} nextStep={nextStep} />;
+            <Step3 prevStep={prevStep} nextStep={nextStep} setData={handleDataChange} type={data.type}/>;
             <CloseButton onClick={handleClose}/>
             </div>)
         case 4:
