@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { useEffect } from 'react'
 import './SignupForm.css'
 import Empolyee from './icons/employee.png'
@@ -47,9 +47,21 @@ import MyButton from './Components/SimpleCompoents/MyButton'
   
   
   export const Step2 = ({ prevStep, nextStep, setData, type }) => {
-    
+    const inputRefs = useRef({
+      name: useRef(null),
+      location: useRef(null),
+      birthday: useRef(null),
+      business_type: useRef(null),
+      about: useRef(null)
+    });
 
-    const saveDataAndContinue = (data) => {
+    const saveDataAndContinue = (type) => {
+      const data = {
+        name: inputRefs.current.name.current.value,
+        location: inputRefs.current.location.current.value,
+        [type === 'candidate' ? 'birthday' : 'business_type']: inputRefs.current.birthday.current?.value || inputRefs.current.business_type.current.value,
+        about: inputRefs.current.about.current.value
+      }
       setData({ data });
      nextStep(); 
     };
@@ -59,21 +71,20 @@ import MyButton from './Components/SimpleCompoents/MyButton'
       <h1>About you</h1>
       { type === 'candidate' ? 
       <div className='step2-form'>
-        <div className='step2-form-items'><span className='label'>Full name: </span><input className='step2-input'/></div>
-        {/* <div className='step2-form-items'><span className='label'>Phone: </span><input className='step2-input'/></div> */}
-        <div className='step2-form-items'><span className='label'>Location (City): </span><input className='step2-input'/></div>
-        <div className='step2-form-items'><span className='label'>Birthday: </span><input className='step2-input' type="date"/></div>
-        <div className='step2-form-items'><span className='label'>About you: </span><textarea className='step2-textarea'/></div>
+        <div className='step2-form-items'><span className='label'>Full name: </span><input className='step2-input' ref={inputRefs.current.name}/></div>
+        <div className='step2-form-items'><span className='label'>Location (City): </span><input className='step2-input' ref={inputRefs.current.location}/></div>
+        <div className='step2-form-items'><span className='label'>Birthday: </span><input className='step2-input' type="date" ref={inputRefs.current.birthday}/></div>
+        <div className='step2-form-items'><span className='label'>About you: </span><textarea className='step2-textarea' ref={inputRefs.current.about}/></div>
       </div>
       : 
       <div className='step2-form'>
-      <div className='step2-form-items'><span className='label'>Business name: </span><input className='step2-input'/></div>
-      <div className='step2-form-items'><span className='label'>Location (City): </span><input className='step2-input'/></div>
-      <div className='step2-form-items'><span className='label'>Business type: </span><input className='step2-input'/></div>
-      <div className='step2-form-items'><span className='label'>About: </span><textarea className='step2-textarea'/></div>
+      <div className='step2-form-items'><span className='label'>Business name: </span><input className='step2-input' ref={inputRefs.current.name}/></div>
+      <div className='step2-form-items'><span className='label'>Location (City): </span><input className='step2-input' ref={inputRefs.current.location}/></div>
+      <div className='step2-form-items'><span className='label'>Business type: </span><input className='step2-input' ref={inputRefs.current.business_type}/></div>
+      <div className='step2-form-items'><span className='label'>About: </span><textarea className='step2-textarea' ref={inputRefs.current.about}/></div>
     </div> }
       <div className='form-buttons'>
-        <MyButton text={'Next'} width={65} height={30} backgroundColor={'#007BFF'} onClick={nextStep}/>
+        <MyButton text={'Next'} width={65} height={30} backgroundColor={'#007BFF'} onClick={()=>saveDataAndContinue(type)}/>
         <MyButton text={'Back'} width={65} height={30} backgroundColor={'#6C757D'} onClick={prevStep}/>
       </div>
     </div>
@@ -83,6 +94,7 @@ import MyButton from './Components/SimpleCompoents/MyButton'
   export const Step3 = ({ prevStep, nextStep, setData, type }) => {
 
     const saveDataAndContinue = (data) => {
+      data.
       setData({ data });
      nextStep(); 
     };
@@ -97,7 +109,7 @@ import MyButton from './Components/SimpleCompoents/MyButton'
         <div className='step2-form-items'><span className='label'>Password: </span><input type="password" className='step2-input'/></div> 
       </div>
       <div className='form-buttons'>
-        <MyButton text={'Next'} width={65} height={30} backgroundColor={'#007BFF'} onClick={nextStep}/>
+        <MyButton text={'Next'} width={65} height={30} backgroundColor={'#007BFF'} onClick={saveDataAndContinue}/>
         <MyButton text={'Back'} width={65} height={30} backgroundColor={'#6C757D'} onClick={prevStep}/>
       </div>
     </div>
