@@ -18,10 +18,15 @@ export default function MultistepForm(props) {
     const handleClose = () => {
       props.close();
     }
+
+    const sendData = (data) => {
+      console.log(data);
+    }
     
     const handleDataChange = (stepData) => {
       console.log(stepData);
       setData({ ...data, ...stepData });
+      // if(step == 3) { sendData(data)}
     };
 
       switch (step) {
