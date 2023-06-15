@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CloseButton from '../Components/SimpleCompoents/CloseButton';
 import { Step1, Step2, Step3, Finish } from '../SignupForm';
 
 export default function MultistepForm(props) {
-    const [step,setStep] = useState(1);
+  const LAST_STEP = 4;
+    const [step, setStep] = useState(1);
     const [data, setData] = useState({});
     
 
@@ -19,15 +20,21 @@ export default function MultistepForm(props) {
       props.close();
     }
 
-    const sendData = (data) => {
+    const sendData = () => {
       console.log(data);
     }
     
     const handleDataChange = (stepData) => {
       console.log(stepData);
-      setData({ ...data, ...stepData });
-      // if(step == 3) { sendData(data)}
+      setData((data) => ({ ...data, ...stepData }));
     };
+    
+    useEffect(() => {
+      if (step === LAST_STEP) {
+        sendData(data);
+      }
+    }, [step, data]);
+   
 
       switch (step) {
         case 1:
