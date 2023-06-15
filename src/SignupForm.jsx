@@ -56,13 +56,13 @@ import MyButton from './Components/SimpleCompoents/MyButton'
     });
 
     const saveDataAndContinue = (type) => {
-      const data = {
+      const data2 = {
         name: inputRefs.current.name.current.value,
         location: inputRefs.current.location.current.value,
         [type === 'candidate' ? 'birthday' : 'business_type']: inputRefs.current.birthday.current?.value || inputRefs.current.business_type.current.value,
         about: inputRefs.current.about.current.value
       }
-      setData({ data });
+      setData({ data2 });
      nextStep(); 
     };
 
@@ -92,10 +92,18 @@ import MyButton from './Components/SimpleCompoents/MyButton'
     };
   
   export const Step3 = ({ prevStep, nextStep, setData, type }) => {
-
-    const saveDataAndContinue = (data) => {
-      data.
-      setData({ data });
+    const inputRefs = useRef({
+      phone: useRef(null),
+      email: useRef(null),
+      password: useRef(null),
+    });
+    const saveDataAndContinue = () => {
+      const data3 = {
+        phone : inputRefs.current.phone?.current || null,
+        email: inputRefs.current.email.current.value,
+        password: inputRefs.current.password.current.value
+      }
+      setData({ data3 });
      nextStep(); 
     };
       return (
@@ -103,18 +111,19 @@ import MyButton from './Components/SimpleCompoents/MyButton'
       <h1>Final Details</h1>
       <div className='step2-form'>
         { type === 'candidate' ?
-        <div className='step2-form-items'><span className='label'>Phone: </span><input className='step2-input'/></div>
+        <div className='step2-form-items'><span className='label'>Phone: </span><input className='step2-input' ref={inputRefs.current.phone}/></div>
         : null }
-        <div className='step2-form-items'><span className='label'>E-mail: </span><input type="email" className='step2-input'/></div>
-        <div className='step2-form-items'><span className='label'>Password: </span><input type="password" className='step2-input'/></div> 
+        <div className='step2-form-items'><span className='label'>E-mail: </span><input type="email" className='step2-input' ref={inputRefs.current.email}/></div>
+        <div className='step2-form-items'><span className='label'>Password: </span><input type="password" className='step2-input' ref={inputRefs.current.password}/></div> 
       </div>
       <div className='form-buttons'>
-        <MyButton text={'Next'} width={65} height={30} backgroundColor={'#007BFF'} onClick={saveDataAndContinue}/>
+        <MyButton text={'Next'} width={65} height={30} backgroundColor={'#007BFF'} onClick={()=>saveDataAndContinue()}/>
         <MyButton text={'Back'} width={65} height={30} backgroundColor={'#6C757D'} onClick={prevStep}/>
       </div>
     </div>
   );
   };
+
   export const Finish = ({ handleClose }) => (
     <div className='form-div'>
       <div className='finish-container'>
