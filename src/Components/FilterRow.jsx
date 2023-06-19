@@ -34,9 +34,9 @@ const text="Filter";
 
             <div className='age-filter-container'>
             <div className='filter-title'>Age range:</div>
-            <div><input type="number" /></div>
+            <div ><input type="number" style={{width: 60}} /></div>
             <div>-</div>
-            <div><input type="number"/></div>
+            <div ><input type="number" style={{width: 60}}/></div>
             </div>
 
             <div className='location-filter-container'>                
@@ -52,7 +52,7 @@ const text="Filter";
               </div>      
             </div>  
             <div style={{position:'absolute', right: '10px', bottom: '10px'}}>
-              <MyButton width={120} height={30} text={text} />
+              <MyButton width={80} height={30} text={text} backgroundColor={'blue'} />
             </div>
     </div>
     </div>

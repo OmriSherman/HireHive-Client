@@ -6,7 +6,7 @@ export default function MyProfileSmall() {
     <div className='my-profile-class'>
     <div className='profile-container'>
     <div><img className='profile-pic' src="/src/icons/sharlinge.jpeg"/></div>
-    <div className='profile-name'>Omris abale</div>
+    <div className='profile-name'>Omris</div>
     <div className='profile-work'>Amdocs</div>
     <div className='my-profile-line'></div>
     <div className='my-profile-actions'>

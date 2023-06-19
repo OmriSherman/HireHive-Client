@@ -63,6 +63,7 @@
 
 .step2-input {
     padding: 8px 12px;
+    width: 273px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
@@ -125,4 +126,15 @@
   .finish-button {
     display: flex;
   justify-content: center;
+  }
+  .signup-error-container {
+    display: flex;
+    justify-content: center; /* horizontally center the content */
+    align-items: center; /* vertically center the content */
+
+  }
+  .signup-error {
+    color: red;
+    margin-top: 10px;
+    font-size: large;
   }
