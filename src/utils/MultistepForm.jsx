@@ -24,6 +24,22 @@ export default function MultistepForm(props) {
       console.log(data);
     }
     
+    const validateForm = (data) => {
+      const missingFields = [];
+      Object.keys(data).forEach((key) => {
+        if (!data[key]) {
+          missingFields.push(key.replace('_', ' '));
+        }
+      });
+    
+      if (missingFields.length > 0) {
+        const fields = missingFields.join(', ');
+        return `Missing fields: ${fields}`;
+      }
+    
+      return false;
+    };
+
     const handleDataChange = (stepData) => {
       console.log(stepData);
       setData((data) => ({ ...data, ...stepData }));
@@ -44,12 +60,12 @@ export default function MultistepForm(props) {
              </div>)
         case 2:
           return (<div>
-            <Step2 prevStep={prevStep} nextStep={nextStep} setData={handleDataChange} type={data.type} />;
+            <Step2 prevStep={prevStep} nextStep={nextStep} setData={handleDataChange} type={data.type} validate={validateForm} />;
             <CloseButton onClick={handleClose}/>
             </div>)
         case 3:
           return (<div>
-            <Step3 prevStep={prevStep} nextStep={nextStep} setData={handleDataChange} type={data.type}/>;
+            <Step3 prevStep={prevStep} nextStep={nextStep} setData={handleDataChange} type={data.type} validate={validateForm}/>;
             <CloseButton onClick={handleClose}/>
             </div>)
         case 4:

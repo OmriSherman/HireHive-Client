@@ -46,7 +46,8 @@ import MyButton from './Components/SimpleCompoents/MyButton'
   };
   
   
-  export const Step2 = ({ prevStep, nextStep, setData, type }) => {
+  export const Step2 = ({ prevStep, nextStep, setData, type, validate }) => {
+    const [error, setError] = useState(null);
     const inputRefs = useRef({
       name: useRef(null),
       location: useRef(null),
@@ -55,15 +56,23 @@ import MyButton from './Components/SimpleCompoents/MyButton'
       about: useRef(null)
     });
 
+
+  
     const saveDataAndContinue = (type) => {
       const data2 = {
         name: inputRefs.current.name.current.value,
         location: inputRefs.current.location.current.value,
-        [type === 'candidate' ? 'birthday' : 'business_type']: inputRefs.current.birthday.current?.value || inputRefs.current.business_type.current.value,
+        [type === 'candidate' ? 'birthday' : 'business_type']: inputRefs.current.birthday.current?.value ?? inputRefs.current.business_type.current.value,
         about: inputRefs.current.about.current.value
       }
-      setData({ data2 });
-     nextStep(); 
+      let validationError = validate(data2);
+      if (validationError) {
+        setError(validationError);
+        validationError = null;
+      } else {
+        setData({ data2 });
+        nextStep();
+      }
     };
 
     return (
@@ -83,6 +92,10 @@ import MyButton from './Components/SimpleCompoents/MyButton'
       <div className='step2-form-items'><span className='label'>Business type: </span><input className='step2-input' ref={inputRefs.current.business_type}/></div>
       <div className='step2-form-items'><span className='label'>About: </span><textarea className='step2-textarea' ref={inputRefs.current.about}/></div>
     </div> }
+    { setError ?
+    <div className='signup-error-container'>
+    <div className='signup-error'><span>{error}</span></div>
+    </div> : ''}
       <div className='form-buttons'>
         <MyButton text={'Next'} width={65} height={30} backgroundColor={'#007BFF'} onClick={()=>saveDataAndContinue(type)}/>
         <MyButton text={'Back'} width={65} height={30} backgroundColor={'#6C757D'} onClick={prevStep}/>
@@ -91,31 +104,51 @@ import MyButton from './Components/SimpleCompoents/MyButton'
   );
     };
   
-  export const Step3 = ({ prevStep, nextStep, setData, type }) => {
+  export const Step3 = ({ prevStep, nextStep, setData, type, validate }) => {
+    const [error, setError] = useState(null);
     const inputRefs = useRef({
       phone: useRef(null),
       email: useRef(null),
-      password: useRef(null),
+      password: useRef(null)
     });
+
     const saveDataAndContinue = () => {
       const data3 = {
-        phone : inputRefs.current.phone?.current || null,
         email: inputRefs.current.email.current.value,
         password: inputRefs.current.password.current.value
       }
-      setData({ data3 });
-     nextStep(); 
+      
+      if (type === 'candidate') {
+        data3 = {
+          ...data3,
+          phone: inputRefs.current.phone?.current?.value
+        };
+      }
+
+      let validationError = validate(data3);
+      if (validationError) {
+        setError(validationError);
+        validationError = null;
+      } else {
+        setData({ data3 });
+        nextStep();
+      }
     };
+
       return (
     <div className='form-div '>
       <h1>Final Details</h1>
       <div className='step2-form'>
-        { type === 'candidate' ?
+        { type === 'candidate' ? 
         <div className='step2-form-items'><span className='label'>Phone: </span><input className='step2-input' ref={inputRefs.current.phone}/></div>
         : null }
         <div className='step2-form-items'><span className='label'>E-mail: </span><input type="email" className='step2-input' ref={inputRefs.current.email}/></div>
         <div className='step2-form-items'><span className='label'>Password: </span><input type="password" className='step2-input' ref={inputRefs.current.password}/></div> 
       </div>
+      { setError ?
+    <div className='signup-error-container'>
+    <div className='signup-error'><span>{error}</span></div>
+    </div> : ''}
       <div className='form-buttons'>
         <MyButton text={'Next'} width={65} height={30} backgroundColor={'#007BFF'} onClick={()=>saveDataAndContinue()}/>
         <MyButton text={'Back'} width={65} height={30} backgroundColor={'#6C757D'} onClick={prevStep}/>
