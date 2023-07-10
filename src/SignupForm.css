@@ -129,12 +129,20 @@
   }
   .signup-error-container {
     display: flex;
-    justify-content: center; /* horizontally center the content */
-    align-items: center; /* vertically center the content */
+    justify-content: center; 
+    align-items: center; 
 
   }
   .signup-error {
     color: red;
     margin-top: 10px;
     font-size: large;
+  }
+
+
+  .radio-container {
+    padding: 0 20px 0 20px;
+    display: flex;
+    width: 273px;
+    justify-content: space-between;
   }
