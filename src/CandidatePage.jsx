@@ -46,20 +46,3 @@ export default function CandidatePage() {
     </div>
   )
 }
-
-// [
-//   {
-//       "id": 9,
-//       "email": "jane.doe@example.com",
-//       "password": null,
-//       "first_name": "Jane",
-//       "last_name": "Doe",
-//       "age": 28,
-//       "phone": null,
-//       "birthday": null,
-//       "photo": "https://picsum.photos/200/200",
-//       "location": "Los Angeles",
-//       "about": "hola chico que pasito",
-//       "gender": "female"
-//   }
-// ]

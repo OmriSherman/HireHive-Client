@@ -106,14 +106,20 @@ import MyButton from './Components/SimpleCompoents/MyButton'
   
   export const Step3 = ({ prevStep, nextStep, setData, type, validate }) => {
     const [error, setError] = useState(null);
+    const [gender, setGender] = useState(null);
+
     const inputRefs = useRef({
+      gender: gender,
       phone: useRef(null),
       email: useRef(null),
       password: useRef(null)
     });
-
+    const handleGenderChange = (e) => {
+      setGender(e.target.value);
+    };
+    
     const saveDataAndContinue = () => {
-      const data3 = {
+      let data3 = {
         email: inputRefs.current.email.current.value,
         password: inputRefs.current.password.current.value
       }
@@ -121,7 +127,8 @@ import MyButton from './Components/SimpleCompoents/MyButton'
       if (type === 'candidate') {
         data3 = {
           ...data3,
-          phone: inputRefs.current.phone?.current?.value
+          phone: inputRefs.current.phone?.current?.value,
+          gender: gender
         };
       }
 
@@ -139,9 +146,21 @@ import MyButton from './Components/SimpleCompoents/MyButton'
     <div className='form-div '>
       <h1>Final Details</h1>
       <div className='step2-form'>
-        { type === 'candidate' ? 
+        { type === 'candidate' ? <>
+        <div className='step2-form-items'><span className='label'>Gender: </span>
+        <div className='radio-container'>
+        <div>
+        <input type="radio" name='gender' id="male" value="male" onChange={handleGenderChange} ref={inputRefs.current.gender}/>
+        <label for="male">Male</label>
+        </div>
+        <div>
+        <input type="radio" name='gender' id="female" value="female" onChange={handleGenderChange} ref={inputRefs.current.gender}/>
+        <label for="female">Female</label>
+        </div>
+        </div>
+        </div>
         <div className='step2-form-items'><span className='label'>Phone: </span><input className='step2-input' ref={inputRefs.current.phone}/></div>
-        : null }
+        </>: null }
         <div className='step2-form-items'><span className='label'>E-mail: </span><input type="email" className='step2-input' ref={inputRefs.current.email}/></div>
         <div className='step2-form-items'><span className='label'>Password: </span><input type="password" className='step2-input' ref={inputRefs.current.password}/></div> 
       </div>
@@ -157,12 +176,12 @@ import MyButton from './Components/SimpleCompoents/MyButton'
   );
   };
 
-  export const Finish = ({ handleClose }) => (
+  export const Finish = ({ handleClose, finalMessage }) => (
     <div className='form-div'>
       <div className='finish-container'>
         <div><img src={Celebrate} className="rotate-image" /></div>
     <div className='finish-div'>
-      <div className="finish-header">You're all set! </div>
+      <div className="finish-header">{finalMessage}</div>
       <div className="finish-subheader">You can now login with your email and password!</div>
       </div>
       <div><img src={Celebrate}/></div>
