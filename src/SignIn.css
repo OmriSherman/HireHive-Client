@@ -51,7 +51,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .login-input {
   width: 273px;
@@ -90,42 +90,9 @@ input:focus {
     outline: none;
 }
 
-input::-webkit-input-placeholder {
-    color: white;
-  }
-
-.input-group.success input {
-  box-shadow: 0 0 0 1px hsl(var(--success-hsl));
-}
-
-.input-group.error input {
-  box-shadow: 0 0 0 1px hsl(var(--error-hsl));
-}
-
-.input-group input:focus {
-  box-shadow: 0 0 0 1px hsl(var(--primary-hsl));
-}
-
-.input-group .msg {
-  display: none;
-  font-size: .75rem;
-}
-
-.input-group.success .msg,
-.input-group.error .msg {
-  display: block;
-}
-
-.input-group.error .msg {
-  color: hsl(var(--error-hsl));
-}
-
-.input-group.success .msg {
-  color: hsl(var(--success-hsl));
-}
 
 .login-button {
-  margin-top: 10px;
+  margin-top: 16px;
   font-size: 1.5rem;
   font-weight: lighter;
   color: white;
@@ -153,9 +120,23 @@ input::-webkit-input-placeholder {
 .sign-up {
   position: relative;
   left: 461px;
-  top: 30px;
+  top: 20px;
   font-weight: 600;
   font-size: 18px;
   color: white;
   cursor: pointer;
 }
+
+.login-error-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 10px;
+}
+
+.login-error {
+  color: red;
+    margin-top: 20px;
+    font-size: large;
+}
+
