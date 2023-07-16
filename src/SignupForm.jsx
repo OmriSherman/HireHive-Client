@@ -164,7 +164,7 @@ import MyButton from './Components/SimpleCompoents/MyButton'
         <div className='step2-form-items'><span className='label'>E-mail: </span><input type="email" className='step2-input' ref={inputRefs.current.email}/></div>
         <div className='step2-form-items'><span className='label'>Password: </span><input type="password" className='step2-input' ref={inputRefs.current.password}/></div> 
       </div>
-      { setError ?
+      { error ?
     <div className='signup-error-container'>
     <div className='signup-error'><span>{error}</span></div>
     </div> : ''}

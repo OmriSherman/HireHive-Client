@@ -10,7 +10,7 @@ const text="Filter";
 
 
    useEffect(()=> {
-    axios.get("http://localhost:3000/candidates/getCities")
+    axios.get("http://localhost:3000/advanced/getCities")
                 .then(res => {
                   setCities(res.data)}) 
               },[])
