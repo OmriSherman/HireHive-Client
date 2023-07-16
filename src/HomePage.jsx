@@ -6,7 +6,7 @@ import MyProfileSmall from './Components/MyProfileSmall';
 import FilterRow from './Components/FilterRow';
 import SeparationLine from './Components/SimpleCompoents/SeparationLine';
 
-function HomePage() {
+function HomePage({handleLogout}) {
     const [users, setUsers] = useState([]);
     const [displayLoading, setLoading] = useState(false);
 
@@ -31,10 +31,11 @@ function HomePage() {
 
 
   return (
+
     <div className='homepage-bg'>
       <h1>HireHive</h1>
 
-      <div className='my-profile'><MyProfileSmall/></div>
+      <div className='my-profile'><MyProfileSmall handleLogout={handleLogout}/></div>
     <div className='homepage-container'>
     <div className='filter-row'><FilterRow/></div>
     <SeparationLine width={800} height={1} color={'black'} marginTop={15} marginBottom={10} position={'relative'} direction={'left'} directionNum={'25%'}/>
@@ -42,6 +43,7 @@ function HomePage() {
     <SeparationLine width={800} height={1} color={'black'} marginTop={8} marginBottom={10} position={'relative'} direction={'left'} directionNum={'25%'}/>
     </div>
     </div>
+ 
   )
 }
 

@@ -2,7 +2,8 @@ import React from 'react'
 import './Candidate.css'
 import '../global.css'
 import location from '../icons/location.png'
-import { Link, BrowserRouter } from 'react-router-dom';
+import CandidatePage from '../CandidatePage'
+import { Link, Routes, Route } from 'react-router-dom';
 
 function Candidate(candidateData) {
 
@@ -13,7 +14,7 @@ function Candidate(candidateData) {
 
         <div><img src={data.photo} className='photo' /></div>
           <div className="data-container">
-    <Link to={`/hirehive/candidate/${data.id}`}  className="link-no-style">
+    <Link to={`/candidate/${data.id}`}  className="link-no-style">
     <div className="title">{data.first_name} {data.last_name}, {data.age}</div>
     </Link>
     <div className="sub-title">

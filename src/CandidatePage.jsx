@@ -23,8 +23,8 @@ export default function CandidatePage() {
   return (
     <div className='page'>
     <div className='segment'>
-    <Link to ={`/hirehive/home`}>
-    <MyButton text={back} width={100} height={40}/>
+    <Link to ={`/home`}>
+    <MyButton text={'Back'} width={65} height={30} backgroundColor={'#007BFF'} />
     </Link>
     <div className='header-container'>
       <img src={candidate.photo} alt="kroki" className='image'/>

@@ -25,8 +25,7 @@ function Signin({handleLoginSuccess}) {
   
     try {
       const response = await axios.post('http://localhost:3000/advanced/loginUser', loginData);
-      console.log(response.data);
-      handleLoginSuccess();
+      handleLoginSuccess(response.data);
     } catch (error) {
       setLoginError(error?.response?.data);
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import './MyProfileSmall.css'
 
-export default function MyProfileSmall() {
+export default function MyProfileSmall({handleLogout}) {
   return (
     <div className='my-profile-class'>
     <div className='profile-container'>
@@ -12,6 +12,7 @@ export default function MyProfileSmall() {
     <div className='my-profile-actions'>
         <div className='action-option'>Add a new job offer</div>
         <div className='action-option'>My job offers</div>
+        <div className='action-option' onClick={handleLogout}>Log Out</div>
     </div>
     </div>
     </div>
