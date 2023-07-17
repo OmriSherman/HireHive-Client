@@ -3,6 +3,7 @@ import { useState } from "react";
 import SignIn from './SignIn'
 import HomePage from './HomePage'
 import CandidatePage from './CandidatePage';
+import UpdateInfo from './UpdateInfo';
 import {Route, Routes, Navigate } from 'react-router-dom'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route path="/" element={!isLoggedIn ? <SignIn handleLoginSuccess={handleLoginSuccess} /> : <Navigate to="/home" />} />
       <Route path="/home" element={isLoggedIn ? <HomePage handleLogout={handleLogout}/> : <Navigate to="/" />} />
       <Route path={`/candidate/:id`} element={<CandidatePage/>} />
+      <Route path={`/update/:id`} element={<UpdateInfo/>} />
       <Route path="*" element={<div>404 Not Found</div>} />
     </Routes>
     </div>
