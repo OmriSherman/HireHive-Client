@@ -11,10 +11,11 @@
 
 .my-profile {
     position: absolute;
-    width: 18%;
-    min-width: 18%;
+    width: 15%;
+    min-width: 15%;
     height: 40%;
     max-height: 40%;
+    min-height: 40%;
     left: 30px;
 }
 

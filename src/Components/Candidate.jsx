@@ -2,7 +2,6 @@ import React from 'react'
 import './Candidate.css'
 import '../global.css'
 import location from '../icons/location.png'
-import CandidatePage from '../CandidatePage'
 import { Link, Routes, Route } from 'react-router-dom';
 
 function Candidate(candidateData) {
