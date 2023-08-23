@@ -3,17 +3,19 @@ import axios from 'axios'
 import './FilterRow.css'
 import MyButton from './SimpleCompoents/MyButton';
 
-export default function FilterRow() {
+export default function FilterRow({ type }) {
 const [cities,setCities] = useState([]);
 const text="Filter";
 
 
 
    useEffect(()=> {
-    axios.get("http://localhost:3000/advanced/getCities")
+    if(type) {
+      axios.post("http://localhost:3000/advanced/getCities", {type})
                 .then(res => {
                   setCities(res.data)}) 
-              },[])
+                }
+              },[type])
 
   return (
     <div className='filter-main'>
@@ -24,7 +26,7 @@ const text="Filter";
             <div className='filter-title'>Sex:</div>
             <div>
                 <select name="sex">
-                    <option value={null} selected disabled hidden>Choose</option>
+                    <option value={null} disabled hidden>Choose</option>
                     <option value={'male'}>Male</option>
                     <option value={'female'}>Female</option>
                     <option value={'*'}>Both</option>
