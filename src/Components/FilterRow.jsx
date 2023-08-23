@@ -5,7 +5,6 @@ import MyButton from './SimpleCompoents/MyButton';
 
 export default function FilterRow({ type }) {
 const [cities,setCities] = useState([]);
-console.log(type);
 const text="Filter";
 
 
