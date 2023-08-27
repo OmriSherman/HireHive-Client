@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './HomePage.css'
+import LoadingGIF from './icons/Loading.gif'
 import axios from 'axios';
 import MyProfileSmall from './Components/MyProfileSmall';
 import FilterRow from './Components/FilterRow';
@@ -7,8 +8,8 @@ import SeparationLine from './Components/SimpleCompoents/SeparationLine';
 import ServiceGiver from './Components/ServiceGiver';
 
 function HomePage({handleLogout}) {
-  const [displayedData, setDisplayedData] = useState([]);
-const [displayLoading, setLoading] = useState(false);
+const [displayedData, setDisplayedData] = useState([]);
+const [loading, setLoading] = useState(true);
 const [typeToDisplay, setTypeToDisplay] = useState('');
 
 useEffect(() => {
@@ -22,7 +23,8 @@ const getData = async(userTypeToDisplay) => {
   await axios.get(`http://localhost:3000/${userTypeToDisplay}s/getAll`)
     .then(res => {
       if (res.data) {
-        setDisplayedData(res.data);
+          setDisplayedData(res.data);
+          setLoading(false);
       }
     })
 }
@@ -30,7 +32,7 @@ const getData = async(userTypeToDisplay) => {
   
 
     const renderItems = () => {
-      console.log(typeToDisplay);
+
       return displayedData.map((serviceGiver) => (
             <div key={serviceGiver.id}>
               <ServiceGiver data={serviceGiver} type={typeToDisplay} />
@@ -49,7 +51,7 @@ const getData = async(userTypeToDisplay) => {
           <div className='filter-row'><FilterRow type={typeToDisplay} /></div>
           <SeparationLine width={800} height={1} color={'black'} marginTop={15} marginBottom={10} position={'relative'} direction={'left'} directionNum={'25%'} />
           <div className='candidates'>
-            {displayLoading ? <div><img src="./icons/loading.gif" alt="Loading" /></div> : renderItems()}
+            {loading ? <div><img className='loading' src={LoadingGIF} alt="Loading" /></div> : renderItems()}
           </div>
           <SeparationLine width={800} height={1} color={'black'} marginTop={8} marginBottom={10} position={'relative'} direction={'left'} directionNum={'25%'} />
         </div>

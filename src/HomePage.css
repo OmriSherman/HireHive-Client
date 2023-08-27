@@ -27,6 +27,12 @@
     min-width: 430px;
 }
 
+.loading {
+  width: 200px;
+  height: 200px;
+  margin-top: 60%;
+}
+
 .candidates {
     position: relative;
     left: 25%;
@@ -34,9 +40,11 @@
     flex-direction: column;
     height: 650px;
     overflow-y: scroll;
-    scroll-behavior: smooth; /* optional */
+    /* scroll-behavior: smooth; /* optional */
     scrollbar-width: thin;
     scrollbar-color: gray white;
+    width: 50%;
+    place-items: center;
 }
 
 .candidates::-webkit-scrollbar {
